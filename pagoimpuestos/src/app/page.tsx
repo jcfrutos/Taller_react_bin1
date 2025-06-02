@@ -1,6 +1,8 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import NextLink from 'next/link';
+import { Button, Link as NextUiLink } from '@nextui-org/react';
 
 export default function Home() {
   return (
@@ -15,22 +17,28 @@ export default function Home() {
         />
         <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2 tracking-[-.01em]">
-            <Link href="/upload">Cargar Archivos</Link>
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
+            <NextUiLink as={NextLink} href="/upload" color="primary" underline="hover">
+              Cargar Archivos
+            </NextUiLink>
+            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold ml-2">
               src/app/page.tsx
             </code>
             .
           </li>
           <li className="mb-2 tracking-[-.01em]">
-            <Link href="/dashboard">Ver Dashboard</Link>
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
+            <NextUiLink as={NextLink} href="/dashboard" color="primary" underline="hover">
+              Ver Dashboard
+            </NextUiLink>
+            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold ml-2">
               src/app/page.tsx
             </code>
             .
           </li>
           <li className="mb-2 tracking-[-.01em]">
-             <Link href="/login">Iniciar Sesión</Link>
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
+            <NextUiLink as={NextLink} href="/login" color="primary" underline="hover">
+              Iniciar Sesión
+            </NextUiLink>
+            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold ml-2">
               src/app/page.tsx
             </code>
             .
@@ -41,37 +49,41 @@ export default function Home() {
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+          <Button
+            as={NextUiLink}
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
+            color="primary"
+            startContent={
+              <Image
+                className="w-5 h-auto dark:invert"
+                src="/vercel.svg"
+                alt="Vercel logomark"
+                width={20}
+                height={20}
+              />
+            }
           >
-            <Image
-              className="w-5 h-auto dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
             Desplegar Ahora
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-black/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
+          </Button>
+          <Button
+            as={NextUiLink}
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
+            variant="bordered"
           >
             Leer los documentos
-          </a>
+          </Button>
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+        <NextUiLink
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
+          className="flex items-center gap-2"
         >
           <Image
             aria-hidden
@@ -81,12 +93,12 @@ export default function Home() {
             height={16}
           />
           Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+        </NextUiLink>
+        <NextUiLink
           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
+          className="flex items-center gap-2"
         >
           <Image
             aria-hidden
@@ -96,12 +108,12 @@ export default function Home() {
             height={16}
           />
           Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+        </NextUiLink>
+        <NextUiLink
           href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
+          className="flex items-center gap-2"
         >
           <Image
             aria-hidden
@@ -111,7 +123,7 @@ export default function Home() {
             height={16}
           />
           Go to nextjs.org →
-        </a>
+        </NextUiLink>
       </footer>
     </div>
   );
