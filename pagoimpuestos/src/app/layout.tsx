@@ -1,8 +1,9 @@
-'use client';
+
 import React from "react";
-import { SessionProvider } from "next-auth/react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SessionClientProvider from "./SessionClientProvider";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,16 +20,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-    return (
-      <html lang="es" suppressHydrationWarning>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <SessionProvider>
-            <div className="container mx-auto p-4">
-              {children}
-            </div>
-          </SessionProvider>
+  return (
+    <html lang="es" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <SessionClientProvider>
           <div>
             <header>
               <h1>Excel Dashboard</h1>
@@ -46,7 +41,8 @@ export default function RootLayout({
               <p>&copy; {new Date().getFullYear()} Excel Dashboard. All rights reserved.</p>
             </footer>
           </div>
-        </body>
-      </html>
-    );
-  }
+        </SessionClientProvider>
+      </body>
+    </html>
+  );
+}
